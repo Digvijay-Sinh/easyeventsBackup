@@ -30,8 +30,8 @@ const Hero = () => {
   ];
   return (
     <>
-      <div className="md:h-[90vh]  sm:h-[70vh] xs:h-[70vh] overflow-hidden p-10 bg-black">
-        <div className="md:h-[50vh] sm:h-[50vh] xs:h-[50vh] w-full">
+      <div className="md:h-[60vh] sm:h-[60vh] xs:h-[60vh] overflow-hidden sm:p-10 bg-black">
+        <div className="md:h-[50vh] sm:h-[50vh] xs:h-[50vh] w-full mt-5">
           <Carousel>
             {SliderData.map((item) => (
               <div
@@ -47,10 +47,10 @@ const Hero = () => {
                   <h1 className="text-white  md:text-6xl sm:text-4xl xs:text-3xl pb-1 font-bold text-center">
                     {item.slogan}
                   </h1>
-                  <h1 className="text-white md:text-6xl sm:text-5xl xs:text-3xl pb-4 font-bold text-center">
+                  <h1 className="text-white md:text-6xl sm:text-5xl xs:text-3xl pb-4 font-bold text-center ">
                     {item.title}
                   </h1>
-                  <p className="text-white md:text-2xl sm:text-xl xs:text-lg text-center">
+                  <p className="text-white md:text-2xl sm:text-xl xs:text-lg text-center w-3/4">
                     {item.desc}
                   </p>
                 </div>

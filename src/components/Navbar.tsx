@@ -1,6 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useAuth } from "../context/AuthProvider";
 
 const Nav = () => {
+  const { auth, setAuth } = useAuth();
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const logouthandler = () => {
+    setAuth({
+      accessToken: "",
+      email: "",
+    });
+  };
+  useEffect(() => {
+    if (auth?.accessToken) {
+      setLoggedIn(true);
+    }
+  }, [auth]);
   const [toggleMenu, setToggleMenu] = useState(false);
 
   const handleToggle = () => {
@@ -8,17 +24,14 @@ const Nav = () => {
   };
 
   return (
-    <header className="">
+    <header className="z-50">
       <div
         style={{
           position: "fixed",
           width: "100%",
           zIndex: 999,
-          backgroundImage: `linear-gradient(to right bottom,rgbA(255,20,147,0.9), rgba(255, 0, 255, 0.9) 35% ,rgba(0, 0, 255, 0.9))`,
-          color: "white",
         }}
-        className="px-4 py-2 text-white flex  justify-between "
-     
+        className="px-4 py-2 text-white flex   justify-between bg-black"
       >
         <h1 className="font-custom font-extrabold text-2xl">easyevents</h1>
         <div
@@ -33,15 +46,29 @@ const Nav = () => {
             <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
               Home
             </li>
-            <li className="dropdown md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3 relative">
-              <a>Products</a>
-            </li>
-            <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
-              AboutUs
-            </li>
-            <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
-              ContactUs
-            </li>
+
+            <NavLink
+              to="/signup"
+              className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
+            >
+              Signup
+            </NavLink>
+            {loggedIn ? (
+              <NavLink
+                to="/login"
+                onClick={logouthandler}
+                className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
+              >
+                Log out
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/login"
+                className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
+              >
+                Login
+              </NavLink>
+            )}
           </ul>
         </div>
         <div className="cursor-pointer md:hidden">

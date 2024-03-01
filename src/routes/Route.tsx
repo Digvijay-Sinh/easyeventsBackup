@@ -9,6 +9,8 @@ import SearchPage from "../pages/searchpage";
 import SuccessPage from "../pages/successpage";
 import HomePage from "../pages/homepage";
 import PrivateRequestPage from "../pages/privateRequestCheck";
+import FormHookTest from "../pages/formHookTest";
+import ProtectedPage from "../pages/protectedpage";
 
 const RouteContainer = () => {
   return (
@@ -18,11 +20,20 @@ const RouteContainer = () => {
         <Route path="/addevent" element={<AddEventPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/hookform" element={<FormHookTest />} />
         <Route path="/eventbooking" element={<EventBookingPage />} />
         <Route path="/eventgroup" element={<EventGroupPage />} />
         <Route path="/eventpage" element={<EventPage />} />
         <Route path="/searchpage" element={<SearchPage />} />
         <Route path="/private" element={<PrivateRequestPage />} />
+        <Route
+          path="/protected"
+          element={
+            <ProtectedPage>
+              <>This is protected content</>
+            </ProtectedPage>
+          }
+        />
         <Route path="/successpage" element={<SuccessPage />} />{" "}
       </Routes>
     </>

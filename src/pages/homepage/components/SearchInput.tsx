@@ -2,18 +2,20 @@ import { Dropdown } from "flowbite-react";
 
 const SearchInput = () => {
   return (
-    <form className="mx-auto flex items-center space-x-4">
-      <Dropdown label="All category" dismissOnClick={false}>
-        <Dropdown.Item>Dashboard</Dropdown.Item>
-        <Dropdown.Item>Settings</Dropdown.Item>
-        <Dropdown.Item>Earnings</Dropdown.Item>
-        <Dropdown.Item>Sign out</Dropdown.Item>
-      </Dropdown>
-      <div className="relative flex-1">
+    <form className="mx-auto flex items-center space-x-4 flex-col  sm:flex-row">
+      <div>
+        <Dropdown label="All category" dismissOnClick={false}>
+          <Dropdown.Item>Dashboard</Dropdown.Item>
+          <Dropdown.Item>Settings</Dropdown.Item>
+          <Dropdown.Item>Earnings</Dropdown.Item>
+          <Dropdown.Item>Sign out</Dropdown.Item>
+        </Dropdown>
+      </div>
+      <div className="relative flex-1 w-[30vh] sm:w-auto mt-3 sm:mt-0 ">
         <input
           type="search"
           id="search-dropdown"
-          className="block p-2.5 w-full z-20 text-sm rounded-e-lg border-s-2 border focus:ring-blue-500 bg-gray-700 border-s-gray-700 border-gray-600 placeholder-gray-400 text-white focus:border-blue-500"
+          className="block p-2.5 w-full z-20 text-sm rounded-lg border-s-2 border focus:ring-blue-500 bg-gray-700 border-s-gray-700 border-gray-600 placeholder-gray-400 text-white focus:border-blue-500"
           placeholder="Search Mockups, Logos, Design Templates..."
           required
         />

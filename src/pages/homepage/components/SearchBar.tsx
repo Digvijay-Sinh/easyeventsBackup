@@ -5,7 +5,6 @@ import SearchInput from "./SearchInput";
 const SearchBar = () => {
   const [value, setValue] = useState({
     startDate: new Date(),
-    endDate: new Date().setMonth(11),
   });
 
   const handleValueChange = (newValue) => {
@@ -16,16 +15,17 @@ const SearchBar = () => {
   return (
     <>
       <div>
-        <div className="mx-auto w-[60%] justify-around items-center sm:px-6 lg:px-8 flex">
+        <div className="mx-auto w-[80%] justify-around items-center sm:px-6 lg:px-8 flex flex-col sm:flex-row">
           <div className="mt-8 w-full">
             <SearchInput />
           </div>
-          {/* <div className="flex mt-8">
+          <div className="flex mt-4 sm:mt-8  sm:pl-3 lg:pl-3 ">
             <DarkModeDatepicker
+              placeholder="Start date - End date"
               value={value}
               handleValueChange={handleValueChange}
             />
-          </div> */}
+          </div>
         </div>
       </div>
     </>

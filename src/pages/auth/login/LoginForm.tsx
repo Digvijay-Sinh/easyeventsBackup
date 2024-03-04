@@ -24,7 +24,7 @@ const LoginForm = () => {
       const accessToken = res?.data?.accessToken;
       setAuth({ email, accessToken });
       console.log(auth);
-      navigate("/protected");
+      navigate("/private");
 
       console.log(JSON.stringify(res?.data));
       setEmail("");

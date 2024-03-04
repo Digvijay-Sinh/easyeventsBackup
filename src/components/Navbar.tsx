@@ -44,30 +44,41 @@ const Nav = () => {
         >
           <ul>
             <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
-              Home
+              <NavLink
+                to="/"
+                className="md:inline-block cursor-pointer hover:text-gray-500  md:border-none py-2 px-3"
+              >
+                Home
+              </NavLink>
             </li>
 
-            <NavLink
-              to="/signup"
-              className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
-            >
-              Signup
-            </NavLink>
+            <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
+              <NavLink
+                to="/signup"
+                className="md:inline-block cursor-pointer hover:text-gray-500  md:border-none py-2 px-3"
+              >
+                Signup
+              </NavLink>
+            </li>
             {loggedIn ? (
-              <NavLink
-                to="/login"
-                onClick={logouthandler}
-                className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
-              >
-                Log out
-              </NavLink>
+              <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
+                <NavLink
+                  to="/login"
+                  onClick={logouthandler}
+                  className="md:inline-block cursor-pointer hover:text-gray-500  md:border-none py-2 px-3"
+                >
+                  Log out
+                </NavLink>
+              </li>
             ) : (
-              <NavLink
-                to="/login"
-                className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3"
-              >
-                Login
-              </NavLink>
+              <li className="md:inline-block cursor-pointer hover:text-gray-500 border-b md:border-none py-2 px-3">
+                <NavLink
+                  to="/login"
+                  className="md:inline-block cursor-pointer hover:text-gray-500  md:border-none py-2 px-3"
+                >
+                  Login
+                </NavLink>
+              </li>
             )}
           </ul>
         </div>
